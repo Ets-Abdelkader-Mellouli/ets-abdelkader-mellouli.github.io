@@ -1,0 +1,131 @@
+<!-- تحسين نظام التنقل بين الصفحات -->
+<script>
+// تحسين نظام التنقل بين الصفحات
+document.addEventListener('DOMContentLoaded', function() {
+    // الحصول على جميع أزرار التنقل
+    const pageLinks = document.querySelectorAll('.pagination .page-link');
+    const prevLink = document.querySelector('.pagination .prev');
+    const nextLink = document.querySelector('.pagination .next');
+    
+    // عدد المنتجات في كل صفحة
+    const productsPerPage = 8;
+    
+    // الحصول على جميع المنتجات
+    const allProducts = document.querySelectorAll('.product-card');
+    
+    // حساب عدد الصفحات
+    const totalPages = Math.ceil(allProducts.length / productsPerPage);
+    
+    // إضافة أزرار صفحات إضافية إذا كان عدد الصفحات أكبر من الموجود حالياً
+    const pagination = document.querySelector('.pagination');
+    const existingPageLinks = document.querySelectorAll('.pagination .page-link:not(.prev):not(.next)');
+    
+    if (totalPages > existingPageLinks.length) {
+        const lastPageLink = existingPageLinks[existingPageLinks.length - 1];
+        
+        for (let i = existingPageLinks.length + 1; i <= totalPages; i++) {
+            const newPageLink = document.createElement('a');
+            newPageLink.href = '#';
+            newPageLink.className = 'page-link';
+            newPageLink.textContent = i;
+            
+            // إضافة الزر قبل زر "التالي"
+            pagination.insertBefore(newPageLink, nextLink);
+        }
+    }
+    
+    // تحديث أزرار التنقل بعد إضافة الأزرار الجديدة
+    const updatedPageLinks = document.querySelectorAll('.pagination .page-link:not(.prev):not(.next)');
+    
+    // دالة لعرض المنتجات حسب الصفحة المحددة
+    function showProductsByPage(pageNumber) {
+        // إخفاء جميع المنتجات
+        allProducts.forEach(product => {
+            product.style.display = 'none';
+        });
+        
+        // حساب نطاق المنتجات التي سيتم عرضها
+        const startIndex = (pageNumber - 1) * productsPerPage;
+        const endIndex = Math.min(startIndex + productsPerPage, allProducts.length);
+        
+        // عرض المنتجات المطلوبة فقط
+        for (let i = startIndex; i < endIndex; i++) {
+            if (allProducts[i]) {
+                allProducts[i].style.display = 'block';
+            }
+        }
+        
+        // تحديث حالة أزرار التنقل
+        updatedPageLinks.forEach(link => {
+            link.classList.remove('active');
+            if (parseInt(link.textContent) === pageNumber) {
+                link.classList.add('active');
+            }
+        });
+        
+        // تحديث حالة زر السابق والتالي
+        if (pageNumber === 1) {
+            prevLink.classList.add('disabled');
+        } else {
+            prevLink.classList.remove('disabled');
+        }
+        
+        if (pageNumber === totalPages) {
+            nextLink.classList.add('disabled');
+        } else {
+            nextLink.classList.remove('disabled');
+        }
+        
+        // التمرير إلى أعلى قسم المنتجات
+        document.querySelector('.products-section').scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    // إضافة مستمع أحداث لأزرار الصفحات
+    updatedPageLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const pageNumber = parseInt(this.textContent);
+            showProductsByPage(pageNumber);
+        });
+    });
+    
+    // إضافة مستمع أحداث لزر السابق
+    prevLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        const activePage = document.querySelector('.pagination .page-link.active');
+        if (activePage) {
+            const pageNumber = parseInt(activePage.textContent);
+            if (pageNumber > 1) {
+                showProductsByPage(pageNumber - 1);
+            }
+        }
+    });
+    
+    // إضافة مستمع أحداث لزر التالي
+    nextLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        const activePage = document.querySelector('.pagination .page-link.active');
+        if (activePage) {
+            const pageNumber = parseInt(activePage.textContent);
+            if (pageNumber < totalPages) {
+                showProductsByPage(pageNumber + 1);
+            }
+        }
+    });
+    
+    // عرض الصفحة الأولى عند تحميل الصفحة
+    showProductsByPage(1);
+});
+
+// إضافة أنماط CSS للزر المعطل
+document.head.insertAdjacentHTML('beforeend', `
+<style>
+    .pagination .page-link.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background-color: var(--gray);
+        border-color: var(--gray);
+    }
+</style>
+`);
+</script>

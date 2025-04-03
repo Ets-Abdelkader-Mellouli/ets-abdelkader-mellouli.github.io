@@ -1,0 +1,2139 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>𝑬𝑻𝑺 𝑨𝑩𝑫𝑬𝑳𝑲𝑨𝑫𝑬𝑹 𝑴𝑬𝑳𝑳𝑶𝑼𝑳𝑰 - المنتجات</title>
+
+
+    <!-- إضافة الأيقونة -->
+    <link rel="icon" href="favicon-96x96.png" type="image/x-icon">
+    
+    <!-- إضافة الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- إضافة Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0077b6;
+            --primary-dark: #023e8a;
+            --primary-light: #90e0ef;
+            --secondary: #fb8500;
+            --secondary-light: #ffb703;
+            --dark: #212529;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --success: #38b000;
+            --white: #ffffff;
+            --border: #dee2e6;
+            --whatsapp: #25D366;
+            --facebook: #1877F2;
+            --instagram: #E4405F;
+            --linkedin: #0A66C2;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        .header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo a {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            background-color: var(--secondary);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-list {
+            display: flex;
+        }
+        
+        .nav-item {
+            margin: 0 15px;
+        }
+        
+        .nav-item a {
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-item a:hover {
+            color: var(--secondary-light);
+        }
+        
+        .nav-item.active a {
+            color: var(--secondary-light);
+            font-weight: 700;
+        }
+        
+        .nav-item.active a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--secondary-light);
+        }
+        
+        .cta-button a {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button a:hover {
+            background-color: var(--secondary-light);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 119, 182, 0.9), rgba(2, 62, 138, 0.9)), url('https://images.unsplash.com/photo-1556911220-bff31c812dba?w=1200&auto=format&fit=crop&q=80&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmVmcmlnZXJhdG9yfGVufDB8fDB8fHww') center/cover no-repeat;
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .page-description {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .breadcrumb a {
+            color: var(--secondary-light);
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--white);
+        }
+        
+        .breadcrumb .separator {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .breadcrumb .current {
+            color: var(--white);
+        }
+        
+        /* Products Filter */
+        .products-filter {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+            margin-bottom: 50px;
+        }
+        
+        .filter-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .filter-group {
+            position: relative;
+        }
+        
+        .filter-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .filter-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            transition: border-color 0.3s;
+            background-color: var(--white);
+        }
+        
+        .filter-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .search-filter {
+            position: relative;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+        
+        .search-input {
+            padding-left: 40px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-reset {
+            background-color: var(--light);
+            color: var(--dark);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-reset:hover {
+            background-color: var(--border);
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+        }
+        
+        /* Products Section */
+        .products-section {
+            padding: 0 0 80px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        .product-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+        
+        .product-actions {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        
+        .product-card:hover .product-actions {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .product-action-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--white);
+            color: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .product-action-btn:hover {
+            background-color: var(--secondary);
+            color: var(--white);
+        }
+        
+        .product-content {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+        
+        .product-category {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .product-description {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+        
+        .rating-count {
+            color: var(--gray);
+            margin-right: 5px;
+        }
+        
+        .product-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 5px;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        
+        .product-btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Quote Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            overflow: auto;
+            padding: 50px 0;
+        }
+        
+        .modal-content {
+            background-color: var(--white);
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: modalFadeIn 0.3s;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .modal-close:hover {
+            color: var(--secondary-light);
+        }
+        
+        .modal-body {
+            padding: 20px;
+        }
+        
+        .quote-product {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .quote-product-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .quote-product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .quote-product-info h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--primary-dark);
+        }
+        
+        .quote-product-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .quote-form-group {
+            margin-bottom: 15px;
+        }
+        
+        .quote-form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .quote-form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            transition: border-color 0.3s;
+        }
+        
+        .quote-form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        textarea.quote-form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .quote-form-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .quote-form-submit:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Image Viewer Modal */
+        .image-viewer-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 3000;
+            overflow: hidden;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .image-viewer-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .image-viewer-img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .image-viewer-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .image-viewer-close:hover {
+            color: var(--secondary-light);
+        }
+        
+        .image-viewer-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: none;
+        }
+        
+        .image-viewer-nav:hover {
+            background-color: var(--primary);
+        }
+        
+        .image-viewer-prev {
+            left: 20px;
+        }
+        
+        .image-viewer-next {
+            right: 20px;
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
+        
+        .page-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            background-color: var(--white);
+            color: var(--dark);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+        
+        .page-link:hover,
+        .page-link.active {
+            background-color: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+        
+        .page-link.prev,
+        .page-link.next {
+            width: auto;
+            padding: 0 15px;
+        }
+        
+        /* Categories Section */
+        .categories-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .category-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .category-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            transition: background 0.3s;
+        }
+        
+        .category-card:hover .category-overlay {
+            background: linear-gradient(to top, rgba(0, 119, 182, 0.8), rgba(2, 62, 138, 0.5));
+        }
+        
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+        
+        .category-count {
+            color: var(--secondary-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Brands Section */
+        .brands-section {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .brand-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .brand-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .brand-image {
+            max-width: 100%;
+            height: 80px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+        
+        .brand-card:hover .brand-image {
+            filter: grayscale(0%);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 0 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-about {
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .footer-description {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #aaa;
+        }
+        
+        /* تكبير وتحسين أيقونات التواصل الاجتماعي */
+        .footer-social {
+            display: flex;
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            font-size: 1.5rem;
+        }
+        
+        .social-link:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(0);
+            transition: transform 0.5s;
+            border-radius: 50%;
+        }
+        
+        .social-link:hover:before {
+            transform: scale(1.2);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .social-link.facebook {
+            background-color: var(--facebook);
+            color: var(--white);
+        }
+        
+        .social-link.instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: var(--white);
+        }
+        
+        .social-link.linkedin {
+            background-color: var(--linkedin);
+            color: var(--white);
+        }
+        
+        .social-link.whatsapp {
+            background-color: var(--whatsapp);
+            color: var(--white);
+        }
+        
+        .social-link i {
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s;
+        }
+        
+        .social-link:hover i {
+            transform: rotate(360deg);
+        }
+        
+        /* تأثير نبض للأيقونات */
+        @keyframes socialPulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+        
+        .social-link:hover {
+            animation: socialPulse 1.5s infinite;
+        }
+        
+        .footer-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .footer-menu {
+            list-style: none;
+        }
+        
+        .footer-menu li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-menu a {
+            color: #aaa;
+            transition: color 0.3s;
+        }
+        
+        .footer-menu a:hover {
+            color: var(--white);
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #aaa;
+        }
+        
+        .contact-info li i {
+            color: var(--primary-light);
+            margin-top: 3px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .copyright {
+            color: #aaa;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, background-color 0.3s;
+            z-index: 999;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Category Pills */
+        .category-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+        
+        .category-pill {
+            background-color: var(--white);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid var(--primary);
+        }
+        
+        .category-pill:hover,
+        .category-pill.active {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+                order: 3;
+            }
+            
+            .main-nav {
+                order: 4;
+                width: 100%;
+                margin-top: 15px;
+                display: none;
+            }
+            
+            .main-nav.active {
+                display: block;
+            }
+            
+            .nav-list {
+                flex-direction: column;
+            }
+            
+            .nav-item {
+                margin: 10px 0;
+            }
+            
+            .filter-buttons {
+                grid-column: 1 / -1;
+                justify-content: flex-end;
+            }
+            
+            .quote-product {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .category-pills {
+                justify-content: center;
+            }
+            
+            .social-link {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .products-filter {
+                padding: 20px;
+            }
+            
+            .filter-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .image-viewer-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .image-viewer-prev {
+                left: 10px;
+            }
+            
+            .image-viewer-next {
+                right: 10px;
+            }
+            
+            .social-link {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الهيدر -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="avatar 2.png" alt="𝑬𝑻𝑺 𝑨𝑩𝑫𝑬𝑳𝑲𝑨𝑫𝑬𝑹 𝑴𝑬𝑳𝑳𝑶𝑼𝑳𝑰 Logo" class="logo-img">
+                        <span class="logo-text">𝑬𝑻𝑺 𝑨𝑩𝑫𝑬𝑳𝑲𝑨𝑫𝑬𝑹 𝑴𝑬𝑳𝑳𝑶𝑼𝑳𝑰</span>
+                    </a>
+                </div>
+                
+                <button class="mobile-menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav class="main-nav" id="mainNav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html">الرئيسية</a></li>
+                        <li class="nav-item active"><a href="products.html">المنتجات</a></li>
+                        <li class="nav-item"><a href="services.html">الخدمات</a></li>
+                        <li class="nav-item"><a href="about.html">من نحن</a></li>
+                        <li class="nav-item"><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="cta-button">
+                    <a href="contact.html">احصل على عرض سعر</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- رأس الصفحة -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">منتجاتنا</h1>
+            <p class="page-description">اكتشف مجموعتنا المتنوعة من المنتجات عالية الجودة</p>
+            <div class="breadcrumb">
+                <a href="index.html">الرئيسية</a>
+                <span class="separator"><i class="fas fa-angle-left"></i></span>
+                <span class="current">المنتجات</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم فلتر المنتجات -->
+    <div class="container">
+        <div class="products-filter">
+            <form id="filterForm">
+                <div class="filter-container">
+                    <div class="filter-group search-filter">
+                        <label for="search" class="filter-label">البحث</label>
+                        <input type="text" id="search" class="filter-control search-input" placeholder="ابحث عن منتج...">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="category" class="filter-label">الفئة</label>
+                        <select id="category" class="filter-control">
+                            <option value="">جميع الفئات</option>
+                            <option value="refrigeration">أنظمة التبريد</option>
+                            <option value="air-conditioning">أنظمة التكييف</option>
+                            <option value="cafe-equipment">معدات المقاهي</option>
+                            <option value="restaurant-equipment">معدات المطاعم</option>
+                            <option value="hotel-equipment">معدات الفنادق</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="brand" class="filter-label">العلامة التجارية</label>
+                        <select id="brand" class="filter-control">
+                            <option value="">جميع العلامات</option>
+                            <option value="brand1">سامسونج</option>
+                            <option value="brand2">إل جي</option>
+                            <option value="brand3">كارير</option>
+                            <option value="brand4">دايكن</option>
+                            <option value="brand5">ميتاج</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="sort" class="filter-label">الترتيب</label>
+                        <select id="sort" class="filter-control">
+                            <option value="newest">الأحدث</option>
+                            <option value="name-asc">الاسم: أ-ي</option>
+                            <option value="name-desc">الاسم: ي-أ</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-buttons">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-filter"></i>
+                            تطبيق الفلتر
+                        </button>
+                        <button type="reset" class="btn btn-reset">
+                            <i class="fas fa-redo"></i>
+                            إعادة تعيين
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- أزرار التصنيفات -->
+    <div class="container">
+        <div class="category-pills">
+            <a href="#" class="category-pill active">الكل</a>
+            <a href="#" class="category-pill">أنظمة التبريد</a>
+            <a href="#" class="category-pill">أنظمة التكييف</a>
+            <a href="#" class="category-pill">معدات المقاهي</a>
+            <a href="#" class="category-pill">معدات المطاعم</a>
+            <a href="#" class="category-pill">معدات الفنادق</a>
+        </div>
+    </div>
+
+    <!-- قسم المنتجات -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid">
+                <!-- منتج 1 -->
+                <div class="product-card" data-product-id="1">
+                    <div class="product-badge">جديد</div>
+                    <div class="product-image">
+                        <img src="vitrines réfrigérées professionnelles.jpg" alt="ثلاجة عرض تجارية">
+                        <div class="product-overlay">
+                            <a href="#" class="btn btn-primary view-details" data-product-id="1">عرض التفاصيل</a>
+                        </div>
+                        <div class="product-actions">
+                            <button class="product-action-btn view-image" data-image="https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVmcmlnZXJhdG9yfGVufDB8fDB8fHww"><i class="fas fa-search-plus"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">ثلاجة عرض تجارية</h3>
+                        <div class="product-category">الفئة: ثلاجات العرض</div>
+                        <p class="product-description">
+                            ثلاجة عرض تجارية بتصميم عصري وكفاءة عالية في استهلاك الطاقة، مثالية للمحلات التجارية والمطاعم.
+                        </p>
+                        <div class="product-meta">
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-count">(45)</span>
+                            </div>
+                        </div>
+                        <a href="#" class="product-btn whatsapp-order-btn" data-product-id="1" data-product-name="ثلاجة عرض تجارية" data-product-image="vitrines réfrigérées professionnelles.jpg">
+                            <i class="fab fa-whatsapp"></i>
+                            طلب عبر الواتساب
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- منتج 2 -->
+                <div class="product-card" data-product-id="2">
+                    <div class="product-image">
+                        <img src="Machine à café professionnelle.jpg" alt="آلة صنع القهوة الاحترافية">
+                        <div class="product-overlay">
+                            <a href="#" class="btn btn-primary view-details" data-product-id="2">عرض التفاصيل</a>
+                        </div>
+                        <div class="product-actions">
+                            <button class="product-action-btn view-image" data-image="https://images.unsplash.com/photo-1585515320310-259814833e62?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29mZmVlJTIwbWFjaGluZXxlbnwwfHwwfHx8MA%3D%3D"><i class="fas fa-search-plus"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">آلة صنع القهوة الاحترافية</h3>
+                        <div class="product-category">الفئة: معدات المقاهي</div>
+                        <p class="product-description">
+                            آلة قهوة احترافية متعددة الوظائف لتحضير أنواع مختلفة من القهوة بجودة عالية، مثالية للمقاهي والمطاعم.
+                        </p>
+                        <div class="product-meta">
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="rating-count">(78)</span>
+                            </div>
+                        </div>
+                        <a href="#" class="product-btn whatsapp-order-btn" data-product-id="2" data-product-name="آلة صنع القهوة الاحترافية" data-product-image="Machine à café professionnelle.jpg">
+                            <i class="fab fa-whatsapp"></i>
+                            طلب عبر الواتساب
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- منتج 3 -->
+                <div class="product-card" data-product-id="3">
+                    <div class="product-image">
+                        <img src="comptoir a pizza.jpg" alt="comptoir a pizza ">
+                        <div class="product-overlay">
+                            <a href="#" class="btn btn-primary view-details" data-product-id="3">عرض التفاصيل</a>
+                        </div>
+                        <div class="product-actions">
+                            <button class="product-action-btn view-image" data-image="https://images.unsplash.com/photo-1586768035999-0e75b130a0c8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGFpciUyMGNvbmRpdGlvbmVyfGVufDB8fDB8fHww"><i class="fas fa-search-plus"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title"> comptoir a pizza</h3>
+                        <div class="product-category">الفئة: أنظمة مطاعم</div>
+                        <p class="product-description">
+                            comptoir a pizza  بتصميم عصري وكفاءة عالية في استهلاك الطاقة، مثالية للمطاعم.
+                        </p>
+                        <div class="product-meta">
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="rating-count">(32)</span>
+                            </div>
+                        </div>
+                        <a href="#" class="product-btn whatsapp-order-btn" data-product-id="3" data-product-name="comptoir a pizza" data-product-image="comptoir a pizza.jpg">
+                            <i class="fab fa-whatsapp"></i>
+                            طلب عبر الواتساب
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- منتج 4 -->
+                <div class="product-card" data-product-id="4">
+                    <div class="product-badge">جديد</div>
+                    <div class="product-image">
+                        <img src="machine à glace.jpg" alt="آلة صنع الثلج">
+                        <div class="product-overlay">
+                            <a href="#" class="btn btn-primary view-details" data-product-id="4">عرض التفاصيل</a>
+                        </div>
+                        <div class="product-actions">
+                            <button class="product-action-btn view-image" data-image="https://images.unsplash.com/photo-1584992236310-6edddc08acff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aWNlJTIwbWFjaGluZXxlbnwwfHwwfHx8MA%3D%3D"><i class="fas fa-search-plus"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">آلة صنع الثلج</h3>
+                        <div class="product-category">الفئة: معدات المطاعم</div>
+                        <p class="product-description">
+                            آلة صنع الثلج بإنتاجية عالية مناسبة للمطاعم والفنادق والمقاهي، سهلة الاستخدام والتنظيف.
+                        </p>
+                        <div class="product-meta">
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                                <span class="rating-count">(21)</span>
+                            </div>
+                        </div>
+                        <a href="#" class="product-btn whatsapp-order-btn" data-product-id="4" data-product-name="آلة صنع الثلج" data-product-image="machine à glace.jpg">
+                            <i class="fab fa-whatsapp"></i>
+                            طلب عبر الواتساب
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- منتج 5 -->
+                <div class="product-card" data-product-id="5">
+                    <div class="product-image">
+                        <img src="congélateur commercial.jpeg" alt="فريزر تجاري">
+                        <div class="product-overlay">
+                            <a href="#" class="btn btn-primary view-details" data-product-id="5">عرض التفاصيل</a>
+                        </div>
+                        <div class="product-actions">
+                            <button class="product-action-btn view-image" data-image="https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZnJlZXplcnxlbnwwfHwwfHx8MA%3D%3D"><i class="fas fa-search-plus"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">فريزر تجاري</h3>
+                        <div class="product-category">الفئة: أنظمة التبريد</div>
+                        <p class="product-description">
+                            فريزر تجاري بسعة كبيرة وكفاءة عالية في استهلاك الطاقة، مناسب للمطاعم والمحلات التجارية.
+                        </p>
+                        <div class="product-meta">
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="rating-count">(29)</span>
+                            </div>
+                        </div>
+                        <a href="#" class="product-btn whatsapp-order-btn" data-product-id="5" data-product-name="فريزر تجاري" data-product-image="congélateur commercial.jpeg">
+                            <i class="fab fa-whatsapp"></i>
+                            طلب عبر الواتساب
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- منتج 6 -->
+                <div class="product-card" data-product-id="6">
+                    <div class="product-image">
+                        <img src="matériel de buanderie professionnel.jpg" alt="معدات مطبخ احترافية">
+                        <div class="product-overlay">
+                            <a href="#" class="btn btn-primary view-details" data-product-id="6">عرض التفاصيل</a>
+                        </div>
+                        <div class="product-actions">
+                            <button class="product-action-btn view-image" data-image="matériel de buanderie professionnel.png"><i class="fas fa-search-plus"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">matériel de buanderie professionnel</h3>
+                        <div class="product-category">الفئة: معدات غسيل</div>
+                        <p class="product-description">
+                            معدات مغسلة احترافية بتقنيات حديثة، مثالية والفنادق والمغاسل التجارية
+                        </p>
+                        <div class="product-meta">
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-count">(52)</span>
+                            </div>
+                        </div>
+                        <a href="#" class="product-btn whatsapp-order-btn" data-product-id="6" data-product-name="matériel de buanderie professionnel" data-product-image="matériel de buanderie professionnel.jpg">
+                            <i class="fab fa-whatsapp"></i>
+                            طلب عبر الواتساب
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- منتج 7 -->
+                <div class="product-card" data-product-id="7">
+                    <div class="product-image">
+                        <img src="chambre-froide-negative-1.jpeg" alt="غرفة تبريد">
+                        <div class="product-overlay">
+                            <a href="#" class="btn btn-primary view-details" data-product-id="7">عرض التفاصيل</a>
+                        </div>
+                        <div class="product-actions">
+                            <button class="product-action-btn view-image" data-image="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2VydmljZXxlbnwwfHwwfHx8MA%3D%3D"><i class="fas fa-search-plus"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">غرفة تبريد</h3>
+                        <div class="product-category">الفئة: أنظمة التبريد</div>
+                        <p class="product-description">
+                            غرفة تبريد متكاملة بمواصفات عالية الجودة، مناسبة للمطاعم والفنادق ومحلات بيع المواد الغذائية.
+                        </p>
+                        <div class="product-meta">
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="rating-count">(18)</span>
+                            </div>
+                        </div>
+                        <a href="#" class="product-btn whatsapp-order-btn" data-product-id="7" data-product-name="غرفة تبريد" data-product-image="chambre-froide-negative-1.jpeg">
+                            <i class="fab fa-whatsapp"></i>
+                            طلب عبر الواتساب
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- منتج 8 -->
+                <div class="product-card" data-product-id="8">
+                    <div class="product-badge">جديد</div>
+                    <div class="product-image">
+                        <img src="Moulin à café professionnel.jpg" alt="مطحنة قهوة احترافية">
+                        <div class="product-overlay">
+                            <a href="#" class="btn btn-primary view-details" data-product-id="8">عرض التفاصيل</a>
+                        </div>
+                        <div class="product-actions">
+                            <button class="product-action-btn view-image" data-image="https://images.unsplash.com/photo-1551761429-8232f9f5955c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29mZmVlJTIwbWFjaGluZXxlbnwwfHwwfHx8MA%3D%3D"><i class="fas fa-search-plus"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="product-action-btn"><i class="fas fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">مطحنة قهوة احترافية</h3>
+                        <div class="product-category">الفئة: معدات المقاهي</div>
+                        <p class="product-description">
+                            مطحنة قهوة احترافية بتصميم عصري وأداء متميز، مثالية للمقاهي والمطاعم.
+                        </p>
+                        <div class="product-meta">
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="rating-count">(37)</span>
+                            </div>
+                            </div>
+                            <a href="#" class="product-btn whatsapp-order-btn" data-product-id="7" data-product-name="مطحنة قهوة احترافية" data-product-image="chambre-froide-negative-1.jpeg">
+                                <i class="fab fa-whatsapp"></i>
+                                طلب عبر الواتساب
+                            </a>
+
+
+                        </div>
+                        
+                        
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- الترقيم -->
+            <div class="pagination">
+                <a href="products.html" class="page-link prev">
+                    <i class="fas fa-angle-right"></i>
+                    السابق
+                </a>
+                <a href="products.html" class="page-link active">1</a>
+                <a href="products-page2.html" class="page-link">2</a>
+                <a href="products-page3.html" class="page-link">3</a>
+                <a href="products-page4.html" class="page-link">4</a>
+                <a href="products-page5.html" class="page-link">5</a>
+                <a href="products-page6.html" class="page-link">6</a>
+                <a href="products-page7.html" class="page-link">7</a>
+                <a href="products-page8.html" class="page-link">8</a>
+                <a href="products-page9.html" class="page-link">9</a>
+              <a href="products-page10.html" class="page-link">10</a>
+              <a href="products-page11.html" class="page-link">11</a>
+              <a href="products-page12.html" class="page-link">12</a>
+              <a href="products-page13.html" class="page-link">13</a>
+              <a href="products-page14.html" class="page-link">14</a>
+              <a href="products-page15.html" class="page-link">15</a>
+              <a href="products-page16.html" class="page-link">16</a>
+                <a href="products-page2.html" class="page-link next">
+                    التالي
+                    <i class="fas fa-angle-left"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الفئات -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">فئات المنتجات</h2>
+                <p class="section-description">تصفح منتجاتنا حسب الفئة</p>
+            </div>
+            
+            <div class="categories-grid">
+                <a href="#" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVmcmlnZXJhdG9yfGVufDB8fDB8fHww" alt="أنظمة التبريد" class="category-image">
+                    <div class="category-overlay">
+                        <h3 class="category-title">أنظمة التبريد</h3>
+                        <span class="category-count">24 منتج</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1586768035999-0e75b130a0c8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGFpciUyMGNvbmRpdGlvbmVyfGVufDB8fDB8fHww" alt="أنظمة التكييف" class="category-image">
+                    <div class="category-overlay">
+                        <h3 class="category-title">أنظمة التكييف</h3>
+                        <span class="category-count">18 منتج</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1585515320310-259814833e62?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29mZmVlJTIwbWFjaGluZXxlbnwwfHwwfHx8MA%3D%3D" alt="معدات المقاهي" class="category-image">
+                    <div class="category-overlay">
+                        <h3 class="category-title">معدات المقاهي</h3>
+                        <span class="category-count">15 منتج</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1588854337115-1c67d9247e4d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a2l0Y2hlbiUyMGVxdWlwbWVudHxlbnwwfHwwfHx8MA%3D%3D" alt="معدات المطاعم" class="category-image">
+                    <div class="category-overlay">
+                        <h3 class="category-title">معدات المطاعم</h3>
+                        <span class="category-count">32 منتج</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم العلامات التجارية -->
+    <section class="brands-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">العلامات التجارية</h2>
+                <p class="section-description">نتعامل مع أفضل العلامات التجارية العالمية</p>
+            </div>
+            
+            <div class="brands-grid">
+                <div class="brand-card">
+                    <img src="https://via.placeholder.com/150x80?text=Brand+1" alt="Brand 1" class="brand-image">
+                </div>
+                <div class="brand-card">
+                    <img src="https://via.placeholder.com/150x80?text=Brand+2" alt="Brand 2" class="brand-image">
+                </div>
+                <div class="brand-card">
+                    <img src="https://via.placeholder.com/150x80?text=Brand+3" alt="Brand 3" class="brand-image">
+                </div>
+                <div class="brand-card">
+                    <img src="https://via.placeholder.com/150x80?text=Brand+4" alt="Brand 4" class="brand-image">
+                </div>
+                <div class="brand-card">
+                    <img src="https://via.placeholder.com/150x80?text=Brand+5" alt="Brand 5" class="brand-image">
+                </div>
+                <div class="brand-card">
+                    <img src="https://via.placeholder.com/150x80?text=Brand+6" alt="Brand 6" class="brand-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- نافذة طلب عرض السعر -->
+    <div id="quoteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">طلب عرض سعر</h2>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="quote-product">
+                    <div class="quote-product-image">
+                        <img id="quoteProductImage" src="/placeholder.svg" alt="صورة المنتج">
+                    </div>
+                    <div class="quote-product-info">
+                        <h3 id="quoteProductName"></h3>
+                        <p>يرجى ملء النموذج أدناه للحصول على عرض سعر لهذا المنتج</p>
+                    </div>
+                </div>
+                <form id="quoteForm">
+                    <input type="hidden" id="productId" name="productId">
+                    <div class="quote-form-group">
+                        <label for="name" class="quote-form-label">الاسم الكامل</label>
+                        <input type="text" id="name" name="name" class="quote-form-control" required>
+                    </div>
+                    <div class="quote-form-group">
+                        <label for="email" class="quote-form-label">البريد الإلكتروني</label>
+                        <input type="email" id="email" name="email" class="quote-form-control" required>
+                    </div>
+                    <div class="quote-form-group">
+                        <label for="phone" class="quote-form-label">رقم الهاتف</label>
+                        <input type="tel" id="phone" name="phone" class="quote-form-control" required>
+                    </div>
+                    <div class="quote-form-group">
+                        <label for="quantity" class="quote-form-label">الكمية المطلوبة</label>
+                        <input type="number" id="quantity" name="quantity" class="quote-form-control" min="1" value="1" required>
+                    </div>
+                    <div class="quote-form-group">
+                        <label for="message" class="quote-form-label">ملاحظات إضافية</label>
+                        <textarea id="message" name="message" class="quote-form-control"></textarea>
+                    </div>
+                    <button type="submit" class="quote-form-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        إرسال الطلب
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة عرض الصور -->
+    <div id="imageViewerModal" class="image-viewer-modal">
+        <div class="image-viewer-content">
+            <button class="image-viewer-close" id="closeImageViewer">&times;</button>
+            <button class="image-viewer-nav image-viewer-prev" id="prevImage">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <img id="imageViewerImg" class="image-viewer-img" src="/placeholder.svg" alt="صورة المنتج">
+            <button class="image-viewer-nav image-viewer-next" id="nextImage">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="avatar 2.png" alt="𝑬𝑻𝑺 𝑨𝑩𝑫𝑬𝑳𝑲𝑨𝑫𝑬𝑹 𝑴𝑬𝑳𝑳𝑶𝑼𝑳𝑰 Logo" class="logo-img">
+                        <span class="logo-text">مؤسسات عبد القادر ملولي</span>
+                    </div>
+                    <p class="footer-description">
+                        نقدم أفضل المنتجات والخدمات بأعلى معايير الجودة وبأسعار تنافسية
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/etsabdelkader.mellouli/" class="social-link facebook" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/ets.abdelkader.mellouli/" class="social-link instagram" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/ets-abdelkader-mellouli" class="social-link linkedin" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a 
+                        href="https://wa.me/21673231646" class="social-link whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        
+
+                
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-menu">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-title">منتجاتنا</h3>
+                    <ul class="footer-menu">
+                        <li><a href="products.html">غرف التبريد</a></li>
+                        <li><a href="products.html">ثلاجات العرض</a></li>
+                        <li><a href="products.html">أنظمة التكييف</a></li>
+                        <li><a href="products.html">معدات المقاهي</a></li>
+                        <li><a href="products.html">مستلزمات المطاعم</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3 class="footer-title">اتصل بنا</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Rte De M'saken, Km 2 Sousse Bouhsina Riadh 4002 TUNISIA
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+73 231 646</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e58c8b838aa584878180898e84818097c8888089898a90898ccb868a88">[email&#160;protected]</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>السبت - الخميس: 9:00 ص - 9:00 م</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">
+                    جميع الحقوق محفوظة &copy; <span id="current-year">2025</span> 𝑬𝑻𝑺 𝑨𝑩𝑫𝑬𝑳𝑲𝑨𝑫𝑬𝑹 𝑴𝑬𝑳𝑳𝑶𝑼𝑳𝑰
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- زر العودة للأعلى -->
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // تفعيل القائمة المتنقلة
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+            });
+        }
+        
+        // زر العودة للأعلى
+        const backToTop = document.getElementById('back-to-top');
+        
+        if (backToTop) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('active');
+                } else {
+                    backToTop.classList.remove('active');
+                }
+            });
+            
+            backToTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+        
+        // تحديث السنة في حقوق النشر
+        const currentYear = document.getElementById('current-year');
+        if (currentYear) {
+            currentYear.textContent = new Date().getFullYear();
+        }
+        
+        // تفعيل نموذج الفلتر
+        const filterForm = document.getElementById('filterForm');
+        if (filterForm) {
+            filterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('تم تطبيق الفلتر بنجاح!');
+            });
+            
+            filterForm.addEventListener('reset', () => {
+                setTimeout(() => {
+                    alert('تم إعادة تعيين الفلتر!');
+                }, 100);
+            });
+        }
+        
+        // تفعيل نافذة طلب عرض السعر
+        const modal = document.getElementById('quoteModal');
+        const closeModal = document.getElementById('closeModal');
+        const quoteForm = document.getElementById('quoteForm');
+        const viewDetailsBtns = document.querySelectorAll('.view-details');
+        
+        // فتح النافذة عند النقر على زر عرض التفاصيل
+        viewDetailsBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const productId = btn.getAttribute('data-product-id');
+                const productCard = btn.closest('.product-card');
+                const productName = productCard.querySelector('.product-title').textContent;
+                const productImage = productCard.querySelector('.product-image img').src;
+                
+                document.getElementById('productId').value = productId;
+                document.getElementById('quoteProductName').textContent = productName;
+                document.getElementById('quoteProductImage').src = productImage;
+                
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // إغلاق النافذة
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // إغلاق النافذة عند النقر خارجها
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // تفعيل نموذج طلب عرض السعر
+        if (quoteForm) {
+            quoteForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('تم إرسال طلب عرض السعر بنجاح! سنتواصل معك قريباً.');
+                quoteForm.reset();
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        }
+        
+        // تفعيل نافذة عرض الصور
+        const imageViewerModal = document.getElementById('imageViewerModal');
+        const imageViewerImg = document.getElementById('imageViewerImg');
+        const closeImageViewer = document.getElementById('closeImageViewer');
+        const prevImage = document.getElementById('prevImage');
+        const nextImage = document.getElementById('nextImage');
+        const viewImageBtns = document.querySelectorAll('.view-image');
+        const productImages = document.querySelectorAll('.product-image img');
+        
+        // مصفوفة لتخزين مسارات الصور
+        const images = Array.from(productImages).map(img => img.src);
+        let currentImageIndex = 0;
+        
+        // فتح نافذة عرض الصور عند النقر على زر عرض الصورة
+        viewImageBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const imageSrc = btn.getAttribute('data-image');
+                imageViewerImg.src = imageSrc;
+                currentImageIndex = images.indexOf(imageSrc);
+                
+                imageViewerModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // فتح نافذة عرض الصور عند النقر على صورة المنتج
+        productImages.forEach(img => {
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                const imageSrc = img.src;
+                imageViewerImg.src = imageSrc;
+                currentImageIndex = images.indexOf(imageSrc);
+                
+                imageViewerModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // إغلاق نافذة عرض الصور
+        closeImageViewer.addEventListener('click', () => {
+            imageViewerModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // إغلاق نافذة عرض الصور عند النقر خارجها
+        imageViewerModal.addEventListener('click', (e) => {
+            if (e.target === imageViewerModal) {
+                imageViewerModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // عرض الصورة السابقة
+        prevImage.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            imageViewerImg.src = images[currentImageIndex];
+        });
+        
+        // عرض الصورة التالية
+        nextImage.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            imageViewerImg.src = images[currentImageIndex];
+        });
+        
+        // التنقل بين الصور باستخدام لوحة المفاتيح
+        document.addEventListener('keydown', (e) => {
+            if (imageViewerModal.style.display === 'flex') {
+                if (e.key === 'ArrowLeft') {
+                    currentImageIndex = (currentImageIndex + 1) % images.length;
+                    imageViewerImg.src = images[currentImageIndex];
+                } else if (e.key === 'ArrowRight') {
+                    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                    imageViewerImg.src = images[currentImageIndex];
+                } else if (e.key === 'Escape') {
+                    imageViewerModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        });
+        
+        // تفعيل أزرار التصنيفات
+        const categoryPills = document.querySelectorAll('.category-pill');
+        
+        categoryPills.forEach(pill => {
+            pill.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // إزالة الفئة النشطة من جميع الأزرار
+                categoryPills.forEach(p => p.classList.remove('active'));
+                
+                // إضافة الفئة النشطة للزر المحدد
+                pill.classList.add('active');
+                
+                // هنا يمكن إضافة منطق لتصفية المنتجات حسب الفئة
+                const category = pill.textContent;
+                alert(`تم اختيار الفئة: ${category}`);
+            });
+        });
+        
+        // تفعيل أزرار طلب المنتج عبر الواتساب
+        const whatsappOrderBtns = document.querySelectorAll('.whatsapp-order-btn');
+        whatsappOrderBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // الحصول على بيانات المنتج
+                const productName = btn.getAttribute('data-product-name');
+                const productImage = btn.getAttribute('data-product-image');
+                
+                // رقم الهاتف الخاص بك (يجب تغييره)
+                const phoneNumber = "21673231646"; // قم بتغيير هذا الرقم إلى رقم الواتساب الخاص بك
+                
+                // إنشاء رسالة تتضمن اسم المنتج
+                const message = `مرحباً، أريد طلب المنتج: ${productName}\nرابط الموقع: ${window.location.href}`;
+                
+                // فتح الواتساب مع الرسالة
+                window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+            });
+        });
+        
+        // تأثيرات حركية إضافية لأيقونات التواصل الاجتماعي
+        const socialLinks = document.querySelectorAll('.social-link');
+        
+        // إضافة تأثير تفاعلي عند تحريك الماوس
+        socialLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                // إضافة تأثير نبض عند تحريك الماوس فوق الأيقونة
+                link.style.animation = 'socialPulse 1.5s infinite';
+            });
+            
+            link.addEventListener('mouseleave', () => {
+                // إيقاف التأثير عند إزالة الماوس
+                setTimeout(() => {
+                    link.style.animation = '';
+                }, 1500);
+            });
+        });
+        
+        // إضافة تأثير ظهور تدريجي للأيقونات عند التمرير
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 1500) { // تعديل هذه القيمة حسب موقع الأيقونات في الصفحة
+                socialLinks.forEach((link, index) => {
+                    setTimeout(() => {
+                        link.style.opacity = '1';
+                        link.style.transform = 'translateY(0) scale(1)';
+                    }, index * 200);
+                });
+            }
+        });
+    </script>
+</body>
+<script src="js/contact-links.js"></script>
+</html>

@@ -1,0 +1,349 @@
+/* ===== التأثيرات الحركية ===== */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInUp {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* تطبيق التأثيرات الحركية */
+  .fade-in {
+    animation: fadeIn 1s ease forwards;
+    opacity: 0;
+  }
+  
+  .fade-in-up {
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+  }
+  
+  .fade-in-down {
+    animation: fadeInDown 1s ease forwards;
+    opacity: 0;
+  }
+  
+  .fade-in-left {
+    animation: fadeInLeft 1s ease forwards;
+    opacity: 0;
+  }
+  
+  .fade-in-right {
+    animation: fadeInRight 1s ease forwards;
+    opacity: 0;
+  }
+  
+  .slide-in-left {
+    animation: slideInLeft 1s ease forwards;
+  }
+  
+  .slide-in-right {
+    animation: slideInRight 1s ease forwards;
+  }
+  
+  .slide-in-up {
+    animation: slideInUp 1s ease forwards;
+  }
+  
+  .slide-in-down {
+    animation: slideInDown 1s ease forwards;
+  }
+  
+  .zoom-in {
+    animation: zoomIn 1s ease forwards;
+    opacity: 0;
+  }
+  
+  .bounce {
+    animation: bounce 2s ease infinite;
+  }
+  
+  .pulse {
+    animation: pulse 2s ease infinite;
+  }
+  
+  .rotate {
+    animation: rotate 2s linear infinite;
+  }
+  
+  /* تأثيرات التحويم */
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+  
+  .hover-rotate {
+    transition: transform 0.3s ease;
+  }
+  
+  .hover-rotate:hover {
+    transform: rotate(5deg);
+  }
+  
+  .hover-shadow {
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .hover-shadow:hover {
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* تأثيرات عند التمرير */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* تأثيرات متنوعة */
+  .ripple {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .ripple::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 1;
+    transition: transform 0.5s, opacity 0.5s;
+  }
+  
+  .ripple:active::after {
+    transform: scale(2);
+    opacity: 0;
+  }
+  
+  /* تأثيرات للأزرار */
+  .button-hover-effect {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .button-hover-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: width 0.3s ease;
+    z-index: -1;
+  }
+  
+  .button-hover-effect:hover::before {
+    width: 100%;
+  }
+  
+  /* تأثيرات للصور */
+  .image-hover-zoom {
+    overflow: hidden;
+  }
+  
+  .image-hover-zoom img {
+    transition: transform 0.5s ease;
+  }
+  
+  .image-hover-zoom:hover img {
+    transform: scale(1.1);
+  }
+  
+  .image-hover-rotate {
+    overflow: hidden;
+  }
+  
+  .image-hover-rotate img {
+    transition: transform 0.5s ease;
+  }
+  
+  .image-hover-rotate:hover img {
+    transform: rotate(5deg) scale(1.1);
+  }
+  
+  /* تأثيرات للنصوص */
+  .text-hover-underline {
+    position: relative;
+  }
+  
+  .text-hover-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+  }
+  
+  .text-hover-underline:hover::after {
+    width: 100%;
+  }
+  
+  .text-hover-color {
+    transition: color 0.3s ease;
+  }
+  
+  .text-hover-color:hover {
+    color: var(--primary-color);
+  }
+  
+  /* تأثيرات للبطاقات */
+  .card-hover-effect {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card-hover-effect:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+  }
