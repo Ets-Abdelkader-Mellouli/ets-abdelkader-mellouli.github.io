@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝑬𝑻𝑺 𝑨𝑩𝑫𝑬𝑳𝑲𝑨𝑫𝑬𝑹 𝑴𝑬𝑳𝑳𝑶𝑼𝑳𝑰 - لوحة التحكم</title>
+
+    <!-- إضافة الأيقونة -->
+    <link rel="icon" href="favicon-96x96.png" type="image/x-icon">
+    
+    <!-- إضافة الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- إضافة Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0077b6;
+            --primary-dark: #023e8a;
+            --primary-light: #90e0ef;
+            --secondary: #fb8500;
+            --secondary-light: #ffb703;
+            --dark: #212529;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --success: #38b000;
+            --danger: #dc3545;
+            --warning: #ffc107;
+            --info: #0dcaf0;
+            --white: #ffffff;
+            --border: #dee2e6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Login Page Styles */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 20px;
+        }
+        
+        .login-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .login-logo {
+            margin-bottom: 30px;
+        }
+        
+        .login-logo img {
+            max-width: 150px;
+        }
+        
+        .login-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+        
+        .login-form-group {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+        
+        .login-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .login-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            transition: border-color 0.3s;
+        }
+        
+        .login-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .login-btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .login-footer {
+            margin-top: 20px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Admin Dashboard Styles */
+        .admin-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            width: 250px;
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100%;
+            overflow-y: auto;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        
+        .sidebar-header {
+            padding: 0 20px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .sidebar-logo {
+            max-width: 40px;
+            margin-left: 10px;
+        }
+        
+        .sidebar-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+        }
+        
+        .sidebar-item {
+            margin-bottom: 5px;
+        }
+        
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s;
+        }
+        
+        .sidebar-link:hover, .sidebar-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+        }
+        
+        .sidebar-link i {
+            margin-left: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .sidebar-footer {
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+        }
+        
+        .logout-btn {
+            display: flex;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s;
+        }
+        
+        .logout-btn:hover {
+            color: var(--white);
+        }
+        
+        .logout-btn i {
+            margin-left: 10px;
+        }
+        
+        .main-content {
+            flex: 1;
+            margin-right: 250px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--dark);
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .header-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .user-name {
+            margin-left: 10px;
+            font-weight: 600;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        /* Dashboard Cards */
+        .dashboard-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .dashboard-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            margin-left: 15px;
+        }
+        
+        .card-icon.products {
+            background-color: rgba(0, 119, 182, 0.1);
+            color: var(--primary);
+        }
+        
+        .card-icon.orders {
+            background-color: rgba(251, 133, 0, 0.1);
+            color: var(--secondary);
+        }
+        
+        .card-icon.users {
+            background-color: rgba(56, 176, 0, 0.1);
+            color: var(--success);
+        }
+        
+        .card-icon.views {
+            background-color: rgba(13, 202, 240, 0.1);
+            color: var(--info);
+        }
+        
+        .card-content {
+            flex: 1;
+        }
+        
+        .card-title {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+        
+        .card-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        /* Content Sections */
+        .content-section {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.9rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-success {
+            background-color: var(--success);
+            color: var(--white);
+        }
+        
+        .btn-success:hover {
+            background-color: #2d9a00;
+        }
+        
+        .btn-danger {
+            background-color: var(--danger);
+            color: var(--white);
+        }
+        
+        .btn-danger:hover {
+            background-color: #bb2d3b;
+        }
+        
+        .btn-warning {
+            background-color: var(--warning);
+            color: var(--dark);
+        }
+        
+        .btn-warning:hover {
+            background-color: #e0a800;
+        }
+        
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 0.8rem;
+        }
+        
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+        }
+        
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .table th, .table td {
+            padding: 12px 15px;
+            text-align: right;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .table th {
+            font-weight: 600;
+            color: var(--primary-dark);
+            background-color: rgba(0, 119, 182, 0.05);
+        }
+        
+        .table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .table-actions {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .status-active {
+            background-color: rgba(56, 176, 0, 0.1);
+            color: var(--success);
+        }
+        
+        .status-pending {
+            background-color: rgba(255, 193, 7, 0.1);
+            color: var(--warning);
+        }
+        
+        .status-inactive {
+            background-color: rgba(108, 117, 125, 0.1);
+            color: var(--gray);
+        }
+        
+        /* Forms */
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            transition: border-color 0.3s;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236c757d' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left 15px center;
+            background-size: 12px;
+        }
+        
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-check {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .form-check-input {
+            margin-left: 10px;
+            width: 18px;
+            height: 18px;
+        }
+        
+        .form-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 30px;
+        }
+        
+        /* File Upload */
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-upload-input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 12px 15px;
+            background-color: var(--light);
+            border: 1px dashed var(--border);
+            border-radius: 5px;
+            color: var(--gray);
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .file-upload-label i {
+            margin-left: 10px;
+        }
+        
+        .file-upload-input:hover + .file-upload-label,
+        .file-upload-input:focus + .file-upload-label {
+            background-color: rgba(0, 119, 182, 0.05);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        /* Image Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .gallery-action {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: var(--white);
+            color: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .gallery-action:hover {
+            transform: scale(1.1);
+        }
+        
+        .gallery-action.view:hover {
+            background-color: var(--info);
+            color: var(--white);
+        }
+        
+        .gallery-action.edit:hover {
+            background-color: var(--warning);
+            color: var(--white);
+        }
+        
+        .gallery-action.delete:hover {
+            background-color: var(--danger);
+            color: var(--white);
+        }
+        
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-image {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-content {
+            padding: 15px;
+        }
+        
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+        
+        .product-category {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        /* Modals */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            overflow: auto;
+            padding: 50px 0;
+        }
+        
+        .modal-content {
+            background-color: var(--white);
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: modalFadeIn 0.3s;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .modal-close:hover {
+            color: var(--secondary-light);
+        }
+        
+        .modal-body {
+            padding: 20px;
+        }
+        
+        .modal-footer {
+            padding: 15px 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 20px;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--gray);
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .tab:hover {
+            color: var(--primary);
+        }
+        
+        .tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 30px;
+        }
+        
+        .page-item {
+            display: inline-block;
+        }
+        
+        .page-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 35px;
+            height: 35px;
+            border-radius: 5px;
+            background-color: var(--white);
+            color: var(--dark);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .page-link:hover, .page-link.active {
+            background-color: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+        
+        /* Alerts */
+        .alert {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .alert-success {
+            background-color: rgba(56, 176, 0, 0.1);
+            color: var(--success);
+            border: 1px solid rgba(56, 176, 0, 0.2);
+        }
+        
+        .alert-danger {
+            background-color: rgba(220, 53, 69, 0.1);
+            color: var(--danger);
+            border: 1px solid rgba(220, 53, 69, 0.2);
+        }
+        
+        .alert-warning {
+            background-color: rgba(255, 193, 7, 0.1);
+            color: var(--warning);
+            border: 1px solid rgba(255, 193, 7, 0.2);
+        }
+        
+        .alert-info {
+            background-color: rgba(13, 202, 240, 0.1);
+            color: var(--info);
+            border: 1px solid rgba(13, 202, 240, 0.2);
+        }
+        
+        .alert i {
+            margin-left: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .dashboard-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(100%);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-right: 0;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .dashboard-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-buttons {
+                flex-direction: column;
+            }
+            
+            .form-buttons .btn {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .table-responsive {
+                font-size: 0.9rem;
+            }
+            
+            .table th, .table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- صفحة تسجيل الدخول -->
+    <div class="login-container" id="loginPage">
+        <div class="login-card">
+            <div class="login-logo">
+                <img src="avatar 2.png" alt="𝑬𝑻𝑺 𝑨𝑩𝑫𝑬𝑳𝑲𝑨𝑫𝑬𝑹 𝑴𝑬𝑳𝑳𝑶𝑼𝑳𝑰 Logo">
+            </div>
+            <h1 class="login-title">تسجيل الدخول إلى لوحة التحكم</h1>
+            <form id="loginForm">
+                <div class="login-form-group">
+                    <label for="username" class="login-label">اسم المستخدم</label>
+                    <input type="text" id="username" class="login-input" required>
+                </div>
+                <div class="login-form-group">
+                    <label for="password" class="login-label">كلمة المرور</label>
+                    <input type="password" id="password" class="login-input" required>
+                </div>
+                <button type="submit" class="login-btn">تسجيل الدخول</button>
+            </form>
+            <div class="login-footer">
+                جميع الحقوق محفوظة &copy; 2025 𝑬𝑻𝑺 𝑨𝑩𝑫𝑬𝑳𝑲𝑨𝑫𝑬𝑹 𝑴𝑬𝑳𝑳𝑶𝑼𝑳𝑰
+            </div>
+        </div>
+    </div>
+
+    <!-- لوحة التحكم -->
+    <div class="admin-container" id="adminDashboard" style="display: none;">
+        <!-- القائمة الجانبية -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="avatar 2.png" alt="Logo" class="sidebar-logo">
+                <div class="sidebar-title">لوحة التحكم</div>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="sidebar-item">
+                    <a href="#dashboard" class="sidebar-link active" data-section="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        الرئيسية
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#products" class="sidebar-link" data-section="products">
+                        <i class="fas fa-box"></i>
+                        المنتجات
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#gallery" class="sidebar-link" data-section="gallery">
+                        <i class="fas fa-images"></i>
+                        معرض الصور
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#services" class="sidebar-link" data-section="services">
+                        <i class="fas fa-cogs"></i>
+                        الخدمات
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#team" class="sidebar-link" data-section="team">
+                        <i class="fas fa-users"></i>
+                        فريق العمل
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#settings" class="sidebar-link" data-section="settings">
+                        <i class="fas fa-cog"></i>
+                        الإعدادات
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <a href="#" class="logout-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    تسجيل الخروج
+                </a>
+            </div>
+        </div>
+
+        <!-- المحتوى الرئيسي -->
+        <div class="main-content">
+            <button class="mobile-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- قسم الرئيسية -->
+            <div class="content-section-wrapper" id="dashboard-section">
+                <div class="header">
+                    <h1 class="header-title">لوحة التحكم</h1>
+                    <div class="user-info">
+                        <span class="user-name">مرحباً، المدير</span>
+                        <img src="https://via.placeholder.com/40" alt="User Avatar" class="user-avatar">
+                    </div>
+                </div>
+
+                <div class="dashboard-cards">
+                    <div class="dashboard-card">
+                        <div class="card-icon products">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">إجمالي المنتجات</div>
+                            <div class="card-value">24</div>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-icon orders">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">الطلبات الجديدة</div>
+                            <div class="card-value">12</div>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-icon users">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">الزوار اليوم</div>
+                            <div class="card-value">156</div>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-icon views">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">مشاهدات الصفحة</div>
+                            <div class="card-value">1,254</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">آخر الطلبات</h2>
+                        <a href="#" class="btn btn-primary btn-sm">عرض الكل</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>العميل</th>
+                                    <th>المنتج</th>
+                                    <th>التاريخ</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>أحمد محمد</td>
+                                    <td>ثلاجة عرض تجارية</td>
+                                    <td>2025/04/01</td>
+                                    <td><span class="status status-active">مكتمل</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="btn btn-primary btn-sm">عرض</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>سارة أحمد</td>
+                                    <td>آلة صنع القهوة الاحترافية</td>
+                                    <td>2025/04/02</td>
+                                    <td><span class="status status-pending">قيد المعالجة</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="btn btn-primary btn-sm">عرض</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>محمد علي</td>
+                                    <td>غرفة تبريد</td>
+                                    <td>2025/04/03</td>
+                                    <td><span class="status status-inactive">ملغي</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="btn btn-primary btn-sm">عرض</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- قسم المنتجات -->
+            <div class="content-section-wrapper" id="products-section" style="display: none;">
+                <div class="header">
+                    <h1 class="header-title">إدارة المنتجات</h1>
+                    <button class="btn btn-primary" id="addProductBtn">
+                        <i class="fas fa-plus"></i>
+                        إضافة منتج جديد
+                    </button>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">قائمة المنتجات</h2>
+                        <div>
+                            <input type="text" class="form-control" placeholder="بحث..." style="display: inline-block; width: auto;">
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>الصورة</th>
+                                    <th>اسم المنتج</th>
+                                    <th>الفئة</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><img src="vitrines réfrigérées professionnelles.jpg" alt="Product" width="50"></td>
+                                    <td>ثلاجة عرض تجارية</td>
+                                    <td>ثلاجات العرض</td>
+                                    <td><span class="status status-active">متاح</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="btn btn-warning btn-sm">تعديل</button>
+                                            <button class="btn btn-danger btn-sm">حذف</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td><img src="Machine à café professionnelle.jpg" alt="Product" width="50"></td>
+                                    <td>آلة صنع القهوة الاحترافية</td>
+                                    <td>معدات المقاهي</td>
+                                    <td><span class="status status-active">متاح</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="btn btn-warning btn-sm">تعديل</button>
+                                            <button class="btn btn-danger btn-sm">حذف</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td><img src="comptoir a pizza.jpg" alt="Product" width="50"></td>
+                                    <td>comptoir a pizza</td>
+                                    <td>أنظمة مطاعم</td>
+                                    <td><span class="status status-active">متاح</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="btn btn-warning btn-sm">تعديل</button>
+                                            <button class="btn btn-danger btn-sm">حذف</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination">
+                        <a href="#" class="page-link active">1</a>
+                        <a href="#" class="page-link">2</a>
+                        <a href="#" class="page-link">3</a>
+                        <a href="#" class="page-link">
+                            <i class="fas fa-angle-left"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- قسم معرض الصور -->
+            <div class="content-section-wrapper" id="gallery-section" style="display: none;">
+                <div class="header">
+                    <h1 class="header-title">معرض الصور</h1>
+                    <button class="btn btn-primary" id="addImageBtn">
+                        <i class="fas fa-plus"></i>
+                        إضافة صورة جديدة
+                    </button>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">الصور المتاحة</h2>
+                    </div>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="vitrines réfrigérées professionnelles.jpg" alt="Gallery Image" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-actions">
+                                    <button class="gallery-action view">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="gallery-action edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="gallery-action delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="Machine à café professionnelle.jpg" alt="Gallery Image" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-actions">
+                                    <button class="gallery-action view">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="gallery-action edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="gallery-action delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="comptoir a pizza.jpg" alt="Gallery Image" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-actions">
+                                    <button class="gallery-action view">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="gallery-action edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="gallery-action delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="machine à glace.jpg" alt="Gallery Image" class="gallery-image">
+                            <div class="gallery-overlay">
+                                <div class="gallery-actions">
+                                    <button class="gallery-action view">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="gallery-action edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="gallery-action delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- قسم الخدمات -->
+            <div class="content-section-wrapper" id="services-section" style="display: none;">
+                <div class="header">
+                    <h1 class="header-title">إدارة الخدمات</h1>
+                    <button class="btn btn-primary" id="addServiceBtn">
+                        <i class="fas fa-plus"></i>
+                        إضافة خدمة جديدة
+                    </button>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">قائمة الخدمات</h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>الأيقونة</th>
+                                    <th>اسم الخدمة</th>
+                                    <th>الوصف المختصر</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><i class="fas fa-drafting-compass" style="font-size: 24px; color: var(--primary);"></i></td>
+                                    <td>تصميم وتطوير</td>
+                                    <td>نقدم خدمات تصميم وتطوير احترافية تناسب احتياجاتك</td>
+                                    <td><span class="status status-active">نشط</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="btn btn-warning btn-sm">تعديل</button>
+                                            <button class="btn btn-danger btn-sm">حذف</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td><i class="fas fa-tools" style="font-size: 24px; color: var(--primary);"></i></td>
+                                    <td>تركيب وتشغيل</td>
+                                    <td>فريق متخصص لتركيب وتشغيل جميع المنتجات بطريقة احترافية وآمنة</td>
+                                    <td><span class="status status-active">نشط</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="btn btn-warning btn-sm">تعديل</button>
+                                            <button class="btn btn-danger btn-sm">حذف</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td><i class="fas fa-cogs" style="font-size: 24px; color: var(--primary);"></i></td>
+                                    <td>الصيانة الدورية</td>
+                                    <td>نقدم خدمات صيانة دورية لضمان كفاءة عمل منتجاتنا وإطالة عمرها التشغيلي</td>
+                                    <td><span class="status status-active">نشط</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="btn btn-warning btn-sm">تعديل</button>
+                                            <button class="btn btn-danger btn-sm">حذف</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- قسم فريق العمل -->
+            <div class="content-section-wrapper" id="team-section" style="display: none;">
+                <div class="header">
+                    <h1 class="header-title">إدارة فريق العمل</h1>
+                    <button class="btn btn-primary" id="addTeamMemberBtn">
+                        <i class="fas fa-plus"></i>
+                        إضافة عضو جديد
+                    </button>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">أعضاء الفريق</h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>الصورة</th>
+                                    <th>الاسم</th>
+                                    <th>المنصب</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><img src="2220.jpg" alt="Team Member" width="50" height="50" style="object-fit: cover; border-radius: 50%;"></td>
+                                    <td>مكرم الملولي</td>
+                                    <td>المدير التنفيذي</td>
+                                    <td><span class="status status-active">نشط</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="btn btn-warning btn-sm">تعديل</button>
+                                            <button class="btn btn-danger btn-sm">حذف</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td><img src="22200.jpeg" alt="Team Member" width="50" height="50" style="object-fit: cover; border-radius: 50%;"></td>
+                                    <td>سمير الملولي</td>
+                                    <td>المدير التقني</td>
+                                    <td><span class="status status-active">نشط</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="btn btn-warning btn-sm">تعديل</button>
+                                            <button class="btn btn-danger btn-sm">حذف</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td><img src="22221.jpg" alt="Team Member" width="50" height="50" style="object-fit: cover; border-radius: 50%;"></td>
+                                    <td>ايناس خلف الله</td>
+                                    <td>مديرة المبيعات</td>
+                                    <td><span class="status status-active">نشط</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="btn btn-warning btn-sm">تعديل</button>
+                                            <button class="btn btn-danger btn-sm">حذف</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- قسم الإعدادات -->
+            <div class="content-section-wrapper" id="settings-section" style="display: none;">
+                <div class="header">
+                    <h1 class="header-title">إعدادات الموقع</h1>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">الإعدادات العامة</h2>
+                    </div>
+                    <div class="form-container">
+                        <form id="settingsForm">
+                            <div class="form-group">
+                                <label for="siteName" class="form-label">اسم الموقع</label>
+                                <input type="text" id="siteName" class="form-control" value="𝑬𝑻𝑺 𝑨𝑩𝑫𝑬𝑳𝑲𝑨𝑫𝑬𝑹 𝑴𝑬𝑳𝑳𝑶𝑼𝑳𝑰">
+                            </div>
+                            <div class="form-group">
+                                <label for="siteDescription" class="form-label">وصف الموقع</label>
+                                <textarea id="siteDescription" class="form-control">نقدم أفضل المنتجات والخدمات بأعلى معايير الجودة وبأسعار تنافسية</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="siteLogo" class="form-label">شعار الموقع</label>
+                                <div class="file-upload">
+                                    <input type="file" id="siteLogo" class="file-upload-input">
+                                    <label for="siteLogo" class="file-upload-label">
+                                        <i class="fas fa-upload"></i>
+                                        اختر ملفاً
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="siteEmail" class="form-label">البريد الإلكتروني</label>
+                                <input type="email" id="siteEmail" class="form-control" value="info@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="sitePhone" class="form-label">رقم الهاتف</label>
+                                <input type="tel" id="sitePhone" class="form-control" value="+73 231 646">
+                            </div>
+                            <div class="form-group">
+                                <label for="siteAddress" class="form-label">العنوان</label>
+                                <input type="text" id="siteAddress" class="form-control" value="Rte De M'saken, Km 2 Sousse Bouhsina Riadh 4002 TUNISIA">
+                            </div>
+                            <div class="form-buttons">
+                                <button type="submit" class="btn btn-primary">حفظ التغييرات</button>
+                                <button type="reset" class="btn btn-danger">إلغاء</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">روابط التواصل الاجتماعي</h2>
+                    </div>
+                    <div class="form-container">
+                        <form id="socialForm">
+                            <div class="form-group">
+                                <label for="facebook" class="form-label">فيسبوك</label>
+                                <input type="url" id="facebook" class="form-control" value="https://www.facebook.com/etsabdelkader.mellouli/">
+                            </div>
+                            <div class="form-group">
+                                <label for="instagram" class="form-label">انستغرام</label>
+                                <input type="url" id="instagram" class="form-control" value="https://www.instagram.com/ets.abdelkader.mellouli/">
+                            </div>
+                            <div class="form-group">
+                                <label for="linkedin" class="form-label">لينكد إن</label>
+                                <input type="url" id="linkedin" class="form-control" value="https://www.linkedin.com/company/ets-abdelkader-mellouli">
+                            </div>
+                            <div class="form-group">
+                                <label for="whatsapp" class="form-label">واتساب</label>
+                                <input type="url" id="whatsapp" class="form-control" value="https://wa.me/21673231646">
+                            </div>
+                            <div class="form-buttons">
+                                <button type="submit" class="btn btn-primary">حفظ التغييرات</button>
+                                <button type="reset" class="btn btn-danger">إلغاء</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة إضافة منتج جديد -->
+    <div class="modal" id="addProductModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">إضافة منتج جديد</h2>
+                <button class="modal-close" id="closeProductModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addProductForm">
+                    <div class="form-group">
+                        <label for="productName" class="form-label">اسم المنتج</label>
+                        <input type="text" id="productName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productCategory" class="form-label">الفئة</label>
+                        <select id="productCategory" class="form-select" required>
+                            <option value="">اختر الفئة</option>
+                            <option value="refrigeration">أنظمة التبريد</option>
+                            <option value="air-conditioning">أنظمة التكييف</option>
+                            <option value="cafe-equipment">معدات المقاهي</option>
+                            <option value="restaurant-equipment">معدات المطاعم</option>
+                            <option value="hotel-equipment">معدات الفنادق</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="productDescription" class="form-label">وصف المنتج</label>
+                        <textarea id="productDescription" class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="productImage" class="form-label">صورة المنتج</label>
+                        <div class="file-upload">
+                            <input type="file" id="productImage" class="file-upload-input" accept="image/*" required>
+                            <label for="productImage" class="file-upload-label">
+                                <i class="fas fa-upload"></i>
+                                اختر صورة
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="productStatus" class="form-label">الحالة</label>
+                        <select id="productStatus" class="form-select" required>
+                            <option value="">اختر الحالة</option>
+                            <option value="active" selected>متاح</option>
+                            <option value="inactive">غير متاح</option>
+                        </select>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="btn btn-primary">إضافة المنتج</button>
+                        <button type="button" class="btn btn-danger" id="cancelAddProduct">إلغاء</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة إضافة صورة جديدة -->
+    <div class="modal" id="addImageModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">إضافة صورة جديدة</h2>
+                <button class="modal-close" id="closeImageModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addImageForm">
+                    <div class="form-group">
+                        <label for="imageTitle" class="form-label">عنوان الصورة</label>
+                        <input type="text" id="imageTitle" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="imageFile" class="form-label">الصورة</label>
+                        <div class="file-upload">
+                            <input type="file" id="imageFile" class="file-upload-input" accept="image/*" required>
+                            <label for="imageFile" class="file-upload-label">
+                                <i class="fas fa-upload"></i>
+                                اختر صورة
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="imageCategory" class="form-label">الفئة</label>
+                        <select id="imageCategory" class="form-select">
+                            <option value="">اختر الفئة</option>
+                            <option value="slider">الشرائح الرئيسية</option>
+                            <option value="gallery">معرض الصور</option>
+                            <option value="products">صور المنتجات</option>
+                        </select>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="btn btn-primary">إضافة الصورة</button>
+                        <button type="button" class="btn btn-danger" id="cancelAddImage">إلغاء</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة إضافة خدمة جديدة -->
+    <div class="modal" id="addServiceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">إضافة خدمة جديدة</h2>
+                <button class="modal-close" id="closeServiceModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addServiceForm">
+                    <div class="form-group">
+                        <label for="serviceName" class="form-label">اسم الخدمة</label>
+                        <input type="text" id="serviceName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceIcon" class="form-label">الأيقونة</label>
+                        <select id="serviceIcon" class="form-select" required>
+                            <option value="">اختر الأيقونة</option>
+                            <option value="fa-drafting-compass">تصميم</option>
+                            <option value="fa-tools">أدوات</option>
+                            <option value="fa-cogs">تروس</option>
+                            <option value="fa-truck">شاحنة</option>
+                            <option value="fa-headset">سماعة</option>
+                            <option value="fa-file-contract">عقد</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceDescription" class="form-label">وصف الخدمة</label>
+                        <textarea id="serviceDescription" class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceStatus" class="form-label">الحالة</label>
+                        <select id="serviceStatus" class="form-select" required>
+                            <option value="">اختر الحالة</option>
+                            <option value="active" selected>نشط</option>
+                            <option value="inactive">غير نشط</option>
+                        </select>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="btn btn-primary">إضافة الخدمة</button>
+                        <button type="button" class="btn btn-danger" id="cancelAddService">إلغاء</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة إضافة عضو فريق جديد -->
+    <div class="modal" id="addTeamMemberModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">إضافة عضو فريق جديد</h2>
+                <button class="modal-close" id="closeTeamMemberModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addTeamMemberForm">
+                    <div class="form-group">
+                        <label for="memberName" class="form-label">الاسم</label>
+                        <input type="text" id="memberName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="memberPosition" class="form-label">المنصب</label>
+                        <input type="text" id="memberPosition" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="memberDescription" class="form-label">نبذة تعريفية</label>
+                        <textarea id="memberDescription" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="memberImage" class="form-label">الصورة الشخصية</label>
+                        <div class="file-upload">
+                            <input type="file" id="memberImage" class="file-upload-input" accept="image/*" required>
+                            <label for="memberImage" class="file-upload-label">
+                                <i class="fas fa-upload"></i>
+                                اختر صورة
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="memberStatus" class="form-label">الحالة</label>
+                        <select id="memberStatus" class="form-select" required>
+                            <option value="">اختر الحالة</option>
+                            <option value="active" selected>نشط</option>
+                            <option value="inactive">غير نشط</option>
+                        </select>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="btn btn-primary">إضافة العضو</button>
+                        <button type="button" class="btn btn-danger" id="cancelAddTeamMember">إلغاء</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // تبديل بين صفحة تسجيل الدخول ولوحة التحكم
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+            const loginPage = document.getElementById('loginPage');
+            const adminDashboard = document.getElementById('adminDashboard');
+            const logoutBtn = document.getElementById('logoutBtn');
+            
+            // تسجيل الدخول
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                
+                // هنا يمكن إضافة التحقق من اسم المستخدم وكلمة المرور
+                // للتبسيط، سنقوم بتسجيل الدخول مباشرة
+                loginPage.style.display = 'none';
+                adminDashboard.style.display = 'flex';
+            });
+            
+            // تسجيل الخروج
+            logoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                adminDashboard.style.display = 'none';
+                loginPage.style.display = 'flex';
+                loginForm.reset();
+            });
+            
+            // تبديل القائمة الجانبية في الشاشات الصغيرة
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebar = document.getElementById('sidebar');
+            
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+            });
+            
+            // التنقل بين أقسام لوحة التحكم
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+            const contentSections = document.querySelectorAll('.content-section-wrapper');
+            
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // إزالة الفئة النشطة من جميع الروابط
+                    sidebarLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // إضافة الفئة النشطة للرابط المحدد
+                    this.classList.add('active');
+                    
+                    // إخفاء جميع الأقسام
+                    contentSections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    
+                    // إظهار القسم المحدد
+                    const sectionId = this.getAttribute('data-section');
+                    document.getElementById(`${sectionId}-section`).style.display = 'block';
+                    
+                    // إغلاق القائمة الجانبية في الشاشات الصغيرة
+                    if (window.innerWidth < 768) {
+                        sidebar.classList.remove('active');
+                    }
+                });
+            });
+            
+            // نوافذ الإضافة
+            const addProductBtn = document.getElementById('addProductBtn');
+            const addProductModal = document.getElementById('addProductModal');
+            const closeProductModal = document.getElementById('closeProductModal');
+            const cancelAddProduct = document.getElementById('cancelAddProduct');
+            
+            addProductBtn.addEventListener('click', function() {
+                addProductModal.style.display = 'block';
+            });
+            
+            closeProductModal.addEventListener('click', function() {
+                addProductModal.style.display = 'none';
+            });
+            
+            cancelAddProduct.addEventListener('click', function() {
+                addProductModal.style.display = 'none';
+            });
+            
+            const addImageBtn = document.getElementById('addImageBtn');
+            const addImageModal = document.getElementById('addImageModal');
+            const closeImageModal = document.getElementById('closeImageModal');
+            const cancelAddImage = document.getElementById('cancelAddImage');
+            
+            addImageBtn.addEventListener('click', function() {
+                addImageModal.style.display = 'block';
+            });
+            
+            closeImageModal.addEventListener('click', function() {
+                addImageModal.style.display = 'none';
+            });
+            
+            cancelAddImage.addEventListener('click', function() {
+                addImageModal.style.display = 'none';
+            });
+            
+            const addServiceBtn = document.getElementById('addServiceBtn');
+            const addServiceModal = document.getElementById('addServiceModal');
+            const closeServiceModal = document.getElementById('closeServiceModal');
+            const cancelAddService = document.getElementById('cancelAddService');
+            
+            addServiceBtn.addEventListener('click', function() {
+                addServiceModal.style.display = 'block';
+            });
+            
+            closeServiceModal.addEventListener('click', function() {
+                addServiceModal.style.display = 'none';
+            });
+            
+            cancelAddService.addEventListener('click', function() {
+                addServiceModal.style.display = 'none';
+            });
+            
+            const addTeamMemberBtn = document.getElementById('addTeamMemberBtn');
+            const addTeamMemberModal = document.getElementById('addTeamMemberModal');
+            const closeTeamMemberModal = document.getElementById('closeTeamMemberModal');
+            const cancelAddTeamMember = document.getElementById('cancelAddTeamMember');
+            
+            addTeamMemberBtn.addEventListener('click', function() {
+                addTeamMemberModal.style.display = 'block';
+            });
+            
+            closeTeamMemberModal.addEventListener('click', function() {
+                addTeamMemberModal.style.display = 'none';
+            });
+            
+            cancelAddTeamMember.addEventListener('click', function() {
+                addTeamMemberModal.style.display = 'none';
+            });
+            
+            // إغلاق النوافذ عند النقر خارجها
+            window.addEventListener('click', function(e) {
+                if (e.target === addProductModal) {
+                    addProductModal.style.display = 'none';
+                }
+                if (e.target === addImageModal) {
+                    addImageModal.style.display = 'none';
+                }
+                if (e.target === addServiceModal) {
+                    addServiceModal.style.display = 'none';
+                }
+                if (e.target === addTeamMemberModal) {
+                    addTeamMemberModal.style.display = 'none';
+                }
+            });
+            
+            // معالجة نماذج الإضافة
+            const addProductForm = document.getElementById('addProductForm');
+            addProductForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // هنا يمكن إضافة كود لإرسال بيانات المنتج إلى الخادم
+                alert('تمت إضافة المنتج بنجاح!');
+                addProductModal.style.display = 'none';
+                this.reset();
+            });
+            
+            const addImageForm = document.getElementById('addImageForm');
+            addImageForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // هنا يمكن إضافة كود لإرسال بيانات الصورة إلى الخادم
+                alert('تمت إضافة الصورة بنجاح!');
+                addImageModal.style.display = 'none';
+                this.reset();
+            });
+            
+            const addServiceForm = document.getElementById('addServiceForm');
+            addServiceForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // هنا يمكن إضافة كود لإرسال بيانات الخدمة إلى الخادم
+                alert('تمت إضافة الخدمة بنجاح!');
+                addServiceModal.style.display = 'none';
+                this.reset();
+            });
+            
+            const addTeamMemberForm = document.getElementById('addTeamMemberForm');
+            addTeamMemberForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // هنا يمكن إضافة كود لإرسال بيانات عضو الفريق إلى الخادم
+                alert('تمت إضافة عضو الفريق بنجاح!');
+                addTeamMemberModal.style.display = 'none';
+                this.reset();
+            });
+            
+            // نموذج الإعدادات
+            const settingsForm = document.getElementById('settingsForm');
+            settingsForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // هنا يمكن إضافة كود لإرسال بيانات الإعدادات إلى الخادم
+                alert('تم حفظ الإعدادات بنجاح!');
+            });
+            
+            // نموذج روابط التواصل الاجتماعي
+            const socialForm = document.getElementById('socialForm');
+            socialForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // هنا يمكن إضافة كود لإرسال بيانات روابط التواصل الاجتماعي إلى الخادم
+                alert('تم حفظ روابط التواصل الاجتماعي بنجاح!');
+            });
+        });
+    </script>
+</body>
+</html>
